@@ -24,15 +24,15 @@
              </div>
         }@if (loginemail.hasError('maxlength')) {
             <div id="emailHelp_helper" class="form-text text-danger">
-             your email over allowed .
+              Your email exceeds the allowed length .
           </div>
         }@if (loginemail.hasError('minlength')) {
             <div id="emailHelp_helper" class="form-text text-danger">
-                your email not long enough .
+                your email is not long enough .
           </div>
         }@else if (loginemail.hasError('pattern')) {
             <div id="passHelp_helper" class="form-text text-danger">
-                pls use a email that follow global email format .
+              Please use an email that follows the global email format.
              </div>
         }
       }
@@ -46,22 +46,28 @@
       ngModel
       required
       minlength="8"
-     
+     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[+!@#$%^&*])[A-Za-z\d+!@#$%^&*]{8,}$"
       #passlogin="ngModel"
 
       />
       @if(passlogin.touched && passlogin.invalid ){
         @if(passlogin.hasError('required')){
             <div id="passHelp_helper" class="form-text text-danger">
-                required , pls enter valid password
+              Required, please enter a valid password.
              </div>
         }@if (passlogin.hasError('minlength')) {
             <div id="passHelp_helper" class="form-text text-danger">
-             your password not long enough .
+             your password is not long enough .
           </div>
-        }@else if (passlogin.hasError('pattern')) {
+        }@if (passlogin.hasError('pattern')) {
             <div id="passHelp_helper" class="form-text text-danger">
-                your password not cover required .
+              password must contain at least:
+              <ul>
+                  <li>One uppercase letter (A-Z)</li>
+                  <li>One lowercase letter (a-z)</li>
+                  <li>One number (0-9)</li>
+                  <li>One special character (+, !, #, $, %, &, *)</li>
+              </ul>
              </div>
         }
       }

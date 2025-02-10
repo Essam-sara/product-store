@@ -1,0 +1,68 @@
+/* Centered container with shadow */
+.form-container {
+    max-width: 450px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
+  }
+  
+  /* Form title */
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Form labels */
+  .form-label {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  /* Input fields */
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  /* Input focus effect */
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* Validation messages */
+  .form-text.text-danger {
+    font-size: 14px;
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  /* Submit button */
+  .btn-primary {
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 576px) {
+    .form-container {
+      max-width: 100%;
+      padding: 20px;
+    }
+  }
+  

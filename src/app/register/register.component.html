@@ -1,0 +1,103 @@
+<h2>regestration</h2>
+<div class="container mt-5">
+  <div class="form-container">
+    <h2 class="text-center">Register</h2>
+    <form [formGroup]="regesterform" (ngSubmit)="handelSubmitForm()">
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        />
+        @if(formcontrols['name'].touched && formcontrols['name'].invalid){
+        @if(formcontrols['name'].hasError('required')){
+        <div id="emailHelp_helper" class="form-text text-danger">
+          enter a name
+        </div>
+        } }
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          formControlName="email"
+        />
+        @if(formcontrols['email'].touched && formcontrols['email'].invalid){
+        @if(formcontrols['email'].hasError('required')){
+        <div id="emailHelp_helper" class="form-text text-danger">
+          enter a email
+        </div>
+        } @if(formcontrols['email'].hasError('email')){
+        <div id="emailHelp_helper" class="form-text text-danger">
+          enter a valid email format
+        </div>
+        } }
+      </div>
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          formControlName="username"
+        />
+        @if(formcontrols['username'].touched &&
+        formcontrols['username'].invalid){
+        @if(formcontrols['username'].hasError('required')){
+        <div id="emailHelp_helper" class="form-text text-danger">
+          enter a username without any spacing
+        </div>
+        } @if(formcontrols['username'].hasError('pattern')){
+        <div id="emailHelp_helper" class="form-text text-danger">
+          username should not contain spaces
+        </div>
+        } }
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+        />
+        @if(formcontrols['password'].touched &&
+        formcontrols['password'].invalid){
+        @if(formcontrols['password'].hasError('required')){
+        <div id="passwordHelp_helper" class="form-text text-danger">
+          enter a valid password
+        </div>
+        } @if(formcontrols['password'].hasError('minlength')){
+        <div id="passwordHelp_helper" class="form-text text-danger">
+          password must be at least 8 characters long
+        </div>
+        } @if(formcontrols['password'].hasError('pattern')){
+        <div id="passwordHelp_helper" class="form-text text-danger">
+          password must contain at least:
+          <ul>
+            <li>One uppercase letter (A-Z)</li>
+            <li>One lowercase letter (a-z)</li>
+            <li>One number (0-9)</li>
+            <li>One special character (+, !, #, $, %, &, *)</li>
+          </ul>
+        
+        </div>
+            }}
+      </div>
+    
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+  </div>
+
