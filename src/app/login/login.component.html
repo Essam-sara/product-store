@@ -1,0 +1,72 @@
+
+<div class="container mt-5">
+  <h2>Login</h2>
+  <form #loginForm="ngForm" (ngSubmit)="loginForms(loginForm)" >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="loginemail"
+        ngModel
+        required
+        maxlength="100"
+        minlength="3"
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+        #loginemail="ngModel"
+      />
+      @if(loginemail.touched && loginemail.invalid ){
+        @if(loginemail.hasError('required')){
+            <div id="emailHelp_helper" class="form-text text-danger">
+                We'll never share your email with anyone else.
+             </div>
+        }@if (loginemail.hasError('maxlength')) {
+            <div id="emailHelp_helper" class="form-text text-danger">
+             your email over allowed .
+          </div>
+        }@if (loginemail.hasError('minlength')) {
+            <div id="emailHelp_helper" class="form-text text-danger">
+                your email not long enough .
+          </div>
+        }@else if (loginemail.hasError('pattern')) {
+            <div id="passHelp_helper" class="form-text text-danger">
+                pls use a email that follow global email format .
+             </div>
+        }
+      }
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" 
+      class="form-control" 
+      id="exampleInputPassword1" 
+      name="passlogin"
+      ngModel
+      required
+      minlength="8"
+     
+      #passlogin="ngModel"
+
+      />
+      @if(passlogin.touched && passlogin.invalid ){
+        @if(passlogin.hasError('required')){
+            <div id="passHelp_helper" class="form-text text-danger">
+                required , pls enter valid password
+             </div>
+        }@if (passlogin.hasError('minlength')) {
+            <div id="passHelp_helper" class="form-text text-danger">
+             your password not long enough .
+          </div>
+        }@else if (passlogin.hasError('pattern')) {
+            <div id="passHelp_helper" class="form-text text-danger">
+                your password not cover required .
+             </div>
+        }
+      }
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
