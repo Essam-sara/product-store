@@ -12,7 +12,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent, title: 'Register' },
     { path: 'login', component: LoginComponent, title: 'Login' },
     { path: 'product-details/:id', component: ProductDetailsComponent, title: 'More About Product' }, 
-    { path: 'cart', component: CartComponent, title: 'Shopping Cart' },
+    { path: 'app-cart', component: CartComponent, title: 'Shopping Cart' },
     { path: '**', component: NotFoundComponent, title: 'Page Not Found' }
 ];
 

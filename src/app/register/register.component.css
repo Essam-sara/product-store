@@ -1,68 +1,186 @@
-/* Centered container with shadow */
+/* Global Styling */
+body {
+  background: linear-gradient(135deg, #f3f4f6, #e0e0e0);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Centered Form Container with a Glassmorphism Effect */
 .form-container {
-    max-width: 450px;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    margin: auto;
-  }
-  
-  /* Form title */
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Form labels */
-  .form-label {
-    font-weight: 600;
-    color: #555;
-  }
-  
-  /* Input fields */
-  .form-control {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 10px;
-    font-size: 16px;
-    transition: 0.3s;
-  }
-  
-  /* Input focus effect */
-  .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
-  }
-  
-  /* Validation messages */
-  .form-text.text-danger {
-    font-size: 14px;
-    color: #dc3545;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
-  /* Submit button */
-  .btn-primary {
-    font-size: 18px;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: 0.3s;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 576px) {
-    .form-container {
-      max-width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+/* Form Title */
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  position: relative;
+  padding-left: 30px;
+}
+
+/* ✅ Add user icon to form title */
+h2::before {
+  content: "\f234"; /* Font Awesome 'user-plus' icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  color: #ff8a00;
+}
+
+/* Labels with Icons */
+.form-label {
+  font-weight: 600;
+  color: #444;
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  position: relative;
+  padding-left: 25px; /* Space for icons */
+}
+
+/* ✅ Add Font Awesome icons to labels */
+.form-label[for="name"]::before {
+  content: "\f007"; /* User icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #ff8a00;
+}
+
+.form-label[for="email"]::before {
+  content: "\f0e0"; /* Envelope icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #ff8a00;
+}
+
+.form-label[for="username"]::before {
+  content: "\f2bd"; /* User-circle icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #ff8a00;
+}
+
+.form-label[for="password"]::before {
+  content: "\f023"; /* Lock icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #ff8a00;
+}
+
+/* Input Fields */
+.form-control {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Input Focus Effect */
+.form-control:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
+  outline: none;
+}
+
+/* Validation Error Messages */
+.form-text.text-danger {
+  font-size: 14px;
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: left;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* ✅ Add warning icons for validation messages */
+.form-text.text-danger::before {
+  content: "\f071"; /* Exclamation-triangle icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #dc3545;
+}
+
+/* Submit Button */
+.btn-primary {
+  font-size: 18px;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  border: none;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px;
+}
+
+/* ✅ Add check-circle icon to submit button */
+.btn-primary::before {
+  content: "\f058"; /* Check-circle icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 10px;
+  font-size: 1rem;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e52e71, #ff8a00);
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .form-container {
+      max-width: 90%;
       padding: 20px;
-    }
+  }
+
+  h2 {
+      font-size: 1.6rem;
   }
   
+  .form-control {
+      padding: 10px;
+  }
+  
+  .btn-primary {
+      font-size: 16px;
+      padding: 10px;
+  }
+}

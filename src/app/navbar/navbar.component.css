@@ -1,19 +1,103 @@
+/* ✅ Main Navbar Styling */
 .navbar {
-    background-color: #f8f9fa;
-    padding: 10px 20px;
+  background: linear-gradient(135deg, #ff6600, #e52e71);
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Navbar Brand */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  color: #f3f3f3 !important;
+}
+
+/* ✅ Navbar Links */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white !important;
+  transition: all 0.3s ease-in-out;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important;
+  transform: scale(1.05);
+}
+
+/* ✅ Active Link */
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #ffd700 !important;
+}
+
+/* ✅ Shopping Cart Icon */
+.navbar-nav .nav-link i {
+  font-size: 1.3rem;
+}
+
+/* ✅ Cart Badge Styling */
+.cart-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #ff0000;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Navbar Toggler Button */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ✅ Fix for Dropdown Menu in Small Screens */
+@media (max-width: 650px) {
+  .navbar-collapse {
+      background: white; /* ✅ Ensures visibility on small screens */
+      border-radius: 10px;
+      padding: 15px 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-nav {
+      text-align: center;
+      width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+      color: #333 !important; /* ✅ Darker text for better contrast */
+      padding: 12px;
+      text-align: center;
+      margin: 5px 0;
+      font-size: 1.1rem;
+      display: block;
   }
   
-  .navbar-brand {
-    font-weight: bold;
+  .navbar-toggler-icon {
+      filter: brightness(0) invert(1); /* ✅ Makes the toggler icon white */
   }
-  
-  .nav-link {
-    font-size: 1rem;
-    font-weight: 500;
+
+  /* ✅ Makes dropdown items easier to click */
+  .navbar-collapse.show {
+      padding-bottom: 10px;
   }
-  
-  .nav-link.active {
-    color: #007bff !important;
-    font-weight: bold;
-  }
-  
+}

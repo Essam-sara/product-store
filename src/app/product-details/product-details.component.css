@@ -1,18 +1,79 @@
+/* Global Styling */
+body {
+    background: linear-gradient(135deg, #f3f4f6, #eaeaea);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Main Container */
 .container {
-    max-width: 800px;
+    max-width: 1000px; /* Increased width for better layout */
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
+/* Page Title */
 h2 {
-    color: #007bff;
+    color: #ff6600; /* Modern orange color */
     font-weight: bold;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px; /* Space below title */
+    letter-spacing: 1.5px;
+}
+
+/* Image Styling */
+img {
+    width: 50%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05); /* Smooth hover effect */
+}
+
+/* General Button Styling */
+button {
+    background: linear-gradient(135deg, #ff6600, #ff3300);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff3300, #ff6600);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+    }
 }

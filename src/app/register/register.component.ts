@@ -30,10 +30,14 @@ return this.regesterform.controls;
 
   handelSubmitForm(){
     if (this.regesterform.invalid) {
+      Object.keys(this.regesterform.controls).forEach(field => {
+        const control = this.regesterform.get(field);
+        control?.markAsTouched({ onlySelf: true });
+      });
       return;
     }
-    console.log(this.regesterform)
-    console.log(this.regesterform.value)
+    // console.log(this.regesterform)
+    // console.log(this.regesterform.value)
     
   }
 }
