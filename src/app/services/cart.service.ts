@@ -55,7 +55,7 @@ export class CartService {
   private updateCartState() {
     this.cartSubject.next([...this.cart]);
     this.cartCounter.next(
-      this.cart.reduce((total, item) => total + (item.quantity ?? 1), 0) // ✅ Ensure quantity is always defined
+      this.cart.reduce((total, item) => total + (item.quantity ?? 1), 0) 
     );
   }
 }

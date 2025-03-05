@@ -1,45 +1,50 @@
 <div class="container mt-4">
-    <h2 class="text-center"><i class="fas fa-box-open"></i> Products</h2>
+    <h2 class="text-center">
+        <i class="fas fa-box-open"></i> Products
+    </h2>
 
-    
+    <!-- ✅ Loading Indicator -->
     <div *ngIf="loading" class="text-center">
         <p><i class="fas fa-spinner fa-spin"></i> Loading products...</p>
     </div>
 
-   
+    <!-- ✅ Error Message -->
     <div *ngIf="errorMessage" class="alert alert-danger text-center">
         <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
     </div>
 
-    
-    <div *ngIf="!loading && !errorMessage" class="row row-cols-2 row-cols-md-5 g-4">
-        <div class="col" *ngFor="let product of products; trackBy: trackById">
-            <div class="card h-100" (click)="goToDetails(product.id)" style="cursor: pointer">
-                
-                
-                <img [src]="product.thumbnail" class="card-img-top" alt="{{ product.title }}" />
+    <!-- ✅ Product Grid with Pagination -->
+    <div *ngIf="!loading && !errorMessage">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col" *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: currentPage }; trackBy: trackById">
+                <div class="card h-100 shadow-sm product-card" (click)="goToDetails(product.id)">
+                    
+                    <!-- ✅ Product Image -->
+                    <img [src]="product.thumbnail" class="card-img-top" alt="{{ product.title }}" />
 
-                
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <h6 class="text-success">
-                        <i class="fas "></i> {{ product.price | currency }}
-                    </h6>
-                </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <h6 class="text-success">
+                            <i class="fas fa-dollar-sign"></i> {{ product.price | currency }}
+                        </h6>
+                    </div>
 
-                
-                <div class="card-footer text-center">
-                    <button
-                        class="btn btn-primary w-100"
-                        [disabled]="product.stock <= 0"
-                        (click)="addToCart(product); $event.stopPropagation()"
-                    >
-                        <i class="fas fa-shopping-cart"></i> 
-                        {{ product.stock > 0 ? "Add to Cart" : "Out of Stock" }}
-                    </button>
+                    <div class="card-footer text-center">
+                        <button
+                            class="btn btn-primary w-100 add-to-cart-btn"
+                            [disabled]="product.stock <= 0"
+                            (click)="addToCart(product); $event.stopPropagation()"
+                        >
+                            <i class="fas fa-shopping-cart"></i> 
+                            {{ product.stock > 0 ? "Add to Cart" : "Out of Stock" }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- ✅ Pagination Controls -->
+        <pagination-controls (pageChange)="currentPage = $event" class="mt-3 text-center"></pagination-controls>
     </div>
 </div>

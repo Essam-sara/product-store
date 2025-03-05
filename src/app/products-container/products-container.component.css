@@ -210,3 +210,77 @@ h2 {
         padding: 10px;
     }
 }
+/* ✅ Product Card Styling */
+.product-card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Card Image Styling */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* ✅ Price Styling */
+.text-success {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* ✅ Add to Cart Button */
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    border: none;
+    border-radius: 30px;
+    padding: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+    transform: scale(1.05);
+}
+
+/* ✅ Pagination Styling */
+pagination-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .page-item .page-link {
+    color: #e52e71;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #ff8a00;
+    border-color: #e52e71;
+    color: white;
+}
+
+/* ✅ Responsive Fix */
+@media (max-width: 768px) {
+    .row {
+        justify-content: center;
+    }
+
+    .product-card {
+        width: 90%;
+    }
+}
